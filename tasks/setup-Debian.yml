@@ -1,0 +1,17 @@
+---
+- name: Install Docker PreReqs
+  package:
+    name: "{{ docker_package_prereqs }}"
+    state: present
+
+- name: Install docker repo
+  block:
+    - name: Install the docker apt key
+      apt_key:
+        url: "{{ docker_package_repo_key }}"
+        state: present
+    - name: Install docker apt repo
+      apt_repository:
+        repo: "deb {{ docker_package_repo }} {{ ansible_distribution_release }} stable"
+        filename: docker
+        state: present
