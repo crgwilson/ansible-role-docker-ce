@@ -1,5 +1,7 @@
 # Ansible role: Docker-CE
 
+![Molecule Test](https://github.com/crgwilson/ansible-role-docker-ce/workflows/Molecule%20Test/badge.svg)
+
 Install and manage [docker community edition](https://www.docker.com/products/container-runtime)
 
 
