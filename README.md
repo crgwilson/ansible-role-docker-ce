@@ -11,7 +11,7 @@ Most variables are really straight forward, there's no real reason to need to ch
 
 ### `docker_daemon_config` - dict
 
-Define the content of the `daemon.json` file. This is empty by default.
+Define the content of the `daemon.json` file.
 
 
 ## TODO
