@@ -7,14 +7,15 @@ Install and manage [docker community edition](https://www.docker.com/products/co
 
 ## Variables
 
-All variables are really straight forward, there's no real reason to need to change any of them.
+Most variables are really straight forward, there's no real reason to need to change them, the exceptions are listed below.
+
+### `docker_daemon_config` - dict
+
+Define the content of the `daemon.json` file. This is empty by default.
 
 
 ## TODO
 
-* Manage daemon config
-* Manage storage driver config
-* Manage network driver config
 * Support for installing an arbitrary number of containers
 
 

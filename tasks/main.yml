@@ -10,6 +10,23 @@
     state: present
   notify: restart docker
 
+- name: Manage the docker config directory
+  file:
+    path: /etc/docker
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+
+- name: Configure the docker daemon
+  copy:
+    content: "{{ docker_daemon_config | to_nice_json(indent=2) }}"
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart docker
+
 - name: Manage the docker service
   service:
     name: "{{ docker_service_name }}"
