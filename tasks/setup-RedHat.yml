@@ -10,18 +10,10 @@
   when: ansible_pkg_mgr == 'yum'
 
 - name: Install docker dnf repo
-  block:
-  - name: Install docker dnf repo
-    get_url:
-      url: "{{ docker_package_repo_file }}"
-      dest: /etc/yum.repos.d/docker-ce.repo
-      owner: root
-      group: root
-      mode: 0644
-  # Installing Docker-CE on EL8 doesn't work properly unless you do some hacking to get the proper containerd
-  # version installed... because reasons
-  - name: Install containerd from the CentOS 7 repo
-    package:
-      name: https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.13-3.1.el7.x86_64.rpm
-      state: present
+  get_url:
+    url: "{{ docker_package_repo_file }}"
+    dest: /etc/yum.repos.d/docker-ce.repo
+    owner: root
+    group: root
+    mode: 0644
   when: ansible_pkg_mgr == 'dnf'
